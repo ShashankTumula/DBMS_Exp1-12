@@ -1,0 +1,1093 @@
+﻿create table DEPT
+(
+DEPTNO int,
+DNAME VARCHAR(20),
+LOC VARCHAR(20)
+);
+
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+select table_name from user_tables;
+
+DESC EMP;
+DESC DEPT;
+
+SELECT DISTINCT * FROM EMP;
+
+ALTER TABLE DEPT
+ADD COMMT CHAR;
+ALTER TABLE DEPT
+ADD MISCEL CHAR;
+
+ALTER TABLE DEPT
+MODIFY LOC VARCHAR(15);
+
+ALTER TABLE DEPT
+SET UNUSED(MISCEL);
+
+ALTER TABLE DEPT
+DROP COLUMN COMMT;
+
+ALTER TABLE DEPT
+DROP UNUSED COLUMNS;
+
+ALTER TABLE DEPT
+RENAME  TO DEPT12;
+
+DELETE FROM DEPT12;
+
+COMMENT ON TABLE DEPT12 IS 'THIS IS A COMMENT';
+
+DROP TABLE DEPT12;
+create table DEPT
+(
+DEPTNO int,
+DNAME VARCHAR(20),
+LOC VARCHAR(20)
+);
+
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO DEPT VALUES(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES(20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES(40,'OPERATIONS','BOSTON');
+
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+CREATE TABLE MANAGER(
+MGR_ID int,
+NAME varchar(30),
+SALARY int,
+HIREDATE date
+);
+
+
+INSERT INTO MANAGER (MGR_ID, NAME, SALARY,HIREDATE)
+SELECT empno,ename,sal,hiredate
+FROM EMP
+WHERE job='MANAGER';
+
+UPDATE dept SET loc = 'NEW YORK'
+WHERE loc='BOSTON';
+
+UPDATE dept SET loc = 'DALLAS'
+WHERE DEPTNO=20;
+
+DELETE FROM EMP
+WHERE ename='PAUL';
+
+SELECT * FROM DEPT;
+
+SELECT ename,sal FROM EMP;
+
+SELECT DISTINCT DNAME FROM DEPT;
+
+SELECT ENAME AS NAME ,SAL AS SALARY FROM EMP;
+CREATE TABLE EMP(
+empno number,
+ename varchar(50),
+job char,
+mgr number,
+hiredate date,
+sal number,
+comm number,
+dept number
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+CREATE TABLE MANAGER(
+MGR_ID int,
+NAME varchar(30),
+SALARY int,
+HIREDATE date
+);
+INSERT INTO MANAGER (MGR_ID, NAME, SALARY,HIREDATE)
+SELECT empno,ename,sal,hiredate
+FROM EMP
+WHERE job='MANAGER';
+
+CREATE TABLE DEPT(
+DEPTNO number,
+DNAME varchar(30),
+LOC varchar(15)
+);
+
+INSERT INTO DEPT VALUES('10','ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES('20','RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES('30','SALES','CHICAGO');
+INSERT INTO DEPT VALUES('40','OPERATIONS','BOSTON');
+
+UPDATE MANAGER
+SET salary = salary + (salary*10)/100;
+
+DELETE FROM MANAGER
+WHERE SALARY<2750;
+
+ALTER TABLE EMP RENAME COLUMN ename to NAME;
+ALTER TABLE EMP RENAME COLUMN sal to SALARY;
+SELECT NAME,SALARY*12 FROM EMP;
+
+SELECT name || ',' || job AS CONCAT
+FROM EMP;
+
+SELECT name FROM EMP WHERE job='CLERK';
+
+SELECT name FROM EMP WHERE empno= 7369 OR 7839 OR 7934 OR 7788;
+
+SELECT name FROM EMP WHERE job<>'MANAGER';
+
+SELECT name FROM EMP WHERE
+hiredate BETWEEN
+'30-JUN-81' AND '31-DEC-81';
+
+SELECT DISTINCT job FROM EMP;
+
+SELECT name FROM EMP WHERE COMM<>'';
+
+
+SELECT name
+From EMP
+Where name like '%S'OR 'S%';
+
+
+SELECT name
+From EMP
+Where name like '_I%';
+
+SELECT name,JOB,dept,hiredate FROM EMP ORDER BY hiredate ASC;
+
+SELECT empno,name,job,SALARY*12 FROM EMP ORDER BY salary DESC;
+
+
+
+UPDATE DEPT
+SET loc='CHICAGO' WHERE deptno=30;
+COMMIT TRANSACTION;
+
+UPDATE DEPT
+SET loc='BOSTON' WHERE deptno=40;
+SAVEPOINT update_over;
+ROLLBACK TO update_over;
+CREATE TABLE EMP1(
+EMP1no int,
+ename varchar(50),
+job varchar(20),
+mgr int,
+hiredate date,
+sal int,
+comm int,
+dept int
+);
+
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','0','30');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP1(EMP1no,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+SELECT TO_CHAR(hiredate, 'DAY FMMonth DD, YYYY') AS Hire_Date
+FROM emp1
+WHERE dept = 20;
+
+SELECT TO_CHAR(hiredate, 'DAY FMMonth DD, YYYY HH:MI:SS') AS Hire_Date
+FROM emp1
+WHERE dept = 20;
+
+SELECT ename,hiredate,hiredate + interval '150' day AS First_Salary_Review
+FROM emp1
+WHERE dept = 20;
+
+Select add_months(sysdate,2) from dual;
+Select last_day(sysdate) from dual;
+Select to_date('10-02-09', 'dd-mm-yy') from dual;
+Select to_char(sysdate, 'dy dd mon yyyy') from dual;
+select months_between(sysdate,to_date('10-10-07', 'dd-mm-yy')) from dual;
+Select next_day(sysdate, 'wednesday') from dual;
+Select round(sysdate,'year') from dual;
+Select round(sysdate,'month') from dual;
+Select round(sysdate,'day') from dual;
+Select round(sysdate) from dual;
+Select trunc(sysdate,'year') from dual;
+Select trunc(sysdate,'year') from dual;
+Select trunc(sysdate,'year') from dual;
+Select trunc(sysdate,'year') from dual;
+Select greatest(sysdate, to_date('02-10-06', 'dd-mm-yy'), to_date('12-07-12', 'dd-mm-yy')) from dual;
+Select sysdate+25 from dual;
+Select sysdate-25 from dual;
+Select sysdate-to_date('02-10-06', 'dd-mm-yy') from dual;
+
+Select initcap('jesus christ') from dual;
+Select lower('DIED') from dual;
+Select upper('for Us') from dual;
+Select rtrim('lordourgod', 'lord') from dual;
+Select rtrim('godlovesyou','you') from dual;
+Select translate('jack','j', 'b') from dual;
+Select replace('jack and jue','j', 'bl') from dual;
+Select substr('wages of sin is death', 10,3) from dual;
+
+Select to_date('10-02-09', 'dd-mm-yy') from dual;
+Select to_char(sysdate, 'dy dd mon yyyy') from dual;
+Select to_char(12345.5, 'L099,999.99') from dual;
+Select to_number('123') from dual;
+
+Select abs(-15) from dual;
+Select ceil(33.645) from dual;
+Select cos(180) from dual;
+Select cosh(0) from dual;
+Select exp(2) from dual;
+Select floor(100.2) from dual;
+Select ln(5) from dual;
+Select log(2,64) from dual;
+Select mod(17,3) from dual;
+Select power(5,3) from dual;
+Select round(125.67854,2) from dual;
+Select sin(-19) from dual;
+Select sin(90) from dual;
+Select sinh(45) from dual;
+Select sqrt(7) from dual;
+Select tan(45) from dual;
+Select tanh(60) from dual;
+Select trunc(125.5764,2) from dual;
+
+Select uid from dual;
+Select user from dual;
+Select vsize('hello') from dual;
+Select nvl(comm,50) from emp1 where emp1no=7369;
+
+SELECT COUNT(*) AS Total_Rows FROM emp1;
+
+SELECT COUNT(DISTINCT job) AS Total_Designations FROM emp1;
+
+SELECT COUNT(*) AS Total_Commission_Employees FROM emp1 WHERE comm IS NOT NULL;
+
+The difference between the two queries is in how they handle NULL values in the comm column of the emp table.
+The first query, SELECT COUNT(comm) FROM emp;, only counts the number of non-NULL values in the comm column. If there are any NULL values in the comm column, they will not be counted in the result of this query.
+The second query, SELECT COUNT(NVL(comm,0)) FROM emp;, replaces any NULL values in the comm column with 0 before counting the values. This means that all values in the comm column, including NULL values, will be counted in the result of this query.
+In summary, the first query will give you the number of employees who earn commission, while the second query will give you the total number of employees, including those who do not earn commission.
+
+SELECT SUM(sal) AS Total_Salary FROM emp1;
+
+SELECT MAX(sal) AS Maximum_Salary, MIN(sal) AS Minimum_Salary, AVG(sal) AS Average_Salary FROM emp1;
+
+select count(*) from emp where deptno=30;
+
+SELECT MAX(sal) AS Maximum_Salary FROM emp1 WHERE job = 'CLERK';
+
+SELECT dept, COUNT(*) AS Employee_Count FROM emp1 GROUP BY dept;
+
+in pdf
+
+SELECT job, SUM(sal) AS Total_Salary, MAX(sal) AS Maximum_Salary, MIN(sal) AS Minimum_Salary, AVG(sal) AS Average_Salary FROM emp1 GROUP BY job;
+
+in pdf
+
+SELECT job, SUM(sal) AS Total_Salary
+FROM emp1
+WHERE job != 'PRESIDENT'
+GROUP BY job
+HAVING SUM(sal) > 5000;
+
+SELECT job, COUNT(*) as num_employees, AVG(sal) as avg_salary
+FROM emp1
+GROUP BY job
+HAVING COUNT(*) > 2
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+
+SELECT ENAME FROM EMP WHERE SAL>(SELECT SAL FROM EMP WHERE EMPNO=7566);
+
+SELECT ENAME FROM EMP WHERE JOB=(SELECT JOB FROM EMP WHERE EMPNO=7369) AND SAL>(SELECT SAL FROM EMP WHERE EMPNO=7876);
+
+SELECT ename,job,sal FROM EMP WHERE SAL=(SELECT MIN(SAL) FROM EMP);
+
+SELECT DEPT,MIN(SAL) FROM EMP GROUP BY DEPT HAVING MIN(SAL)> (SELECT MIN(SAL) FROM EMP WHERE DEPT=20);
+
+SELECT empno,ename,job FROM EMP WHERE SAL<ANY(SELECT SAL FROM EMP WHERE JOB='CLERK') AND JOB<>'CLERK';
+
+SELECT E.EMPNO,E.ENAME,E.JOB FROM EMP E WHERE E.SAL > (SELECT AVG(SAL) FROM EMP WHERE DEPT = E.DEPT)
+
+SELECT ename,dept,sal,comm FROM EMP WHERE (sal,nvl(comm,-1)) in (SELECT sal,nvl(comm,-1) FROM EMP WHERE dept=30);
+
+SELECT A.ename,A.sal,A.dept,B.salavg FROM EMP A,(SELECT dept,avg(sal) salavg FROM EMP GROUP BY dept)B WHERE A.dept=B.dept AND A.sal B.salavg;
+
+WITH SUMMARY AS (SELECT dname,sum(sal) as dept_total from emp a, dept b where a.dept=b.dept group by dname);
+SELECT dname,dept_total from summary where dept_total > (select sum(dept_total)*1/3 from summary) order by dept_total desc;
+
+SELECT ENAME,JOB,SAL FROM EMP WHERE SAL=ANY(SELECT SAL FROM EMP WHERE ENAME='SCOTT' OR ENAME='WARD');
+
+SELECT ENAME,JOB,SAL FROM EMP WHERE SAL=(SELECT SAL FROM EMP WHERE ENAME='FORD' AND JOB='ANALYST');
+
+SELECT ENAME, JOB, SAL, DEPT
+FROM EMP
+WHERE JOB =(SELECT JOB FROM EMP WHERE ENAME='JAMES') AND SAL > (SELECT SAL FROM EMP WHERE ENAME = 'FORD');
+
+SELECT ENAME, JOB FROM EMP
+WHERE DEPT = 10 AND JOB IN (SELECT JOB FROM EMP WHERE DEPT IN (SELECT DEPT FROM DEPT WHERE DNAME = 'SALES'));
+
+SELECT JOB,ENAME,EMPNO,DEPT FROM EMP S WHERE EXISTS ( SELECT * FROM EMP WHERE S.EMPNO=MGR) ORDER BY EMPNO;
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+create table DEPT
+(
+DEPTNO int,
+DNAME VARCHAR(20),
+LOC VARCHAR(20)
+);
+INSERT INTO DEPT VALUES(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES(20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES(40,'OPERATIONS','BOSTON');
+
+SELECT e.empno, e.ename, d.deptno
+FROM emp e
+JOIN dept d
+ON e.dept = d.deptno;
+
+
+CREATE TABLE salgrade( grade int,
+losal int,
+hisal int
+);
+insert into salgrade(grade,losal,hisal)
+values(1,700,1400);
+insert into salgrade(grade,losal,hisal)
+values(2,1401,2000);
+insert into salgrade(grade,losal,hisal)
+values(3,2001,5000);
+insert into salgrade(grade,losal,hisal)
+values(4,5001,9999);
+
+SELECT e.ename, e.sal, s.grade
+FROM emp e, salgrade s
+WHERE e.sal BETWEEN s.losal AND s.hisal;
+
+SELECT e.ename, e.dept, d.dname
+FROM emp e
+LEFT JOIN dept d
+ON e.dept = d.deptno;
+
+SELECT e.ename, e.dept, d.dname
+FROM emp e
+RIGHT JOIN dept d
+ON e.dept = d.deptno;
+
+SELECT e.ename AS employee, m.ename AS manager
+FROM emp e, emp m
+WHERE e.mgr = m.empno;
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+create table DEPT
+(
+DEPTNO int,
+DNAME VARCHAR(20),
+LOC VARCHAR(20)
+);
+INSERT INTO DEPT VALUES(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES(20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES(40,'OPERATIONS','BOSTON');
+
+CREATE TABLE depositor (
+cus_name VARCHAR(50),
+acno INT
+);
+
+INSERT INTO depositor (cus_name, acno)
+VALUES('Alice Johnson', 1001);
+INSERT INTO depositor (cus_name, acno)
+VALUES ('Bob Lee', 1002);
+INSERT INTO depositor (cus_name, acno)
+VALUES ('Charlie Brown', 1003);
+INSERT INTO depositor (cus_name, acno)
+VALUES ('David Smith', 1004);
+INSERT INTO depositor (cus_name, acno)
+VALUES ('Emily Chen', 1005);
+
+CREATE TABLE borrower (
+cus_name VARCHAR(50),
+loanno INT
+);
+
+INSERT INTO borrower (cus_name, loanno)
+VALUES ('Alice Johnson', 2001);
+INSERT INTO borrower (cus_name, loanno)
+VALUES ('Bob Lee', 2002);
+INSERT INTO borrower (cus_name, loanno)
+VALUES ('Emily Chen', 2003);
+INSERT INTO borrower (cus_name, loanno)
+VALUES ('Frank Williams', 2004);
+INSERT INTO borrower (cus_name, loanno)
+VALUES ('Grace Davis', 2005);
+
+SELECT cus_name FROM depositor
+UNION
+SELECT cus_name FROM borrower;
+
+SELECT cus_name FROM borrower
+UNION ALL
+SELECT cus_name FROM depositor;
+
+SELECT cus_name FROM borrower
+INTERSECT
+SELECT cus_name FROM depositor;
+
+SELECT cus_name FROM borrower
+MINUS
+SELECT cus_name FROM depositor;
+
+create view empv10 as
+select empno, ename, job,sal from emp where dept=10;
+desc empv10;
+
+CREATE VIEW empv30 AS
+SELECT empno, ename, sal
+FROM emp
+WHERE dept= 30;
+
+update empv10 set sal = sal+(0.10*sal) where job='CLERK';
+select empno,ename,job,sal from emp;
+
+create or replace view empv10 (employee_no, employee_name, job, salary) as select empno, ename, job,sal from emp where dept=10;
+
+CREATE VIEW pay AS
+SELECT ename,sal AS monthly_sal,sal * 12 AS annual_sal,dept
+FROM emp;
+
+CREATE VIEW dept_stat AS
+SELECT d.deptno,d.dname,MIN(e.sal) AS min_sal,MAX(e.sal) AS max_sal,SUM(e.sal) AS total_sal
+FROM dept d
+JOIN emp e ON d.deptno = e.dept
+GROUP BY d.deptno, d.dname;
+
+create or replace view empv20 as select * from emp where dept = 20 with check option constraint empv20_ck;
+
+create or replace view empv10 as select * from emp where dept = 20 with read only;
+
+DROP VIEW empv20;
+DECLARE
+a number;
+b number;
+c number;
+BEGIN
+dbms_output.put_line('Enter a:');
+a:=&a;
+dbms_output.put_line('Enter b:');
+b:=&b;
+dbms_output.put_line('Enter c:');
+c:=&c;
+dbms_output.put_line('NUMBERS');
+IF a>b AND a>c THEN
+	dbms_output.put_line('A is Maximum');
+ELSIF (b>a) and (b>c) THEN
+	dbms_output.put_line('B is Maximum');
+ELSE
+	dbms_output.put_line('C is Maximum');
+end if;
+end;
+/
+
+
+DECLARE
+num1 NUMBER := 10;
+num2 NUMBER := 20;
+temp NUMBER;
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Before swapping:');
+DBMS_OUTPUT.PUT_LINE('num1 = ' || num1);
+DBMS_OUTPUT.PUT_LINE('num2 = ' || num2);
+
+temp := num1;
+num1 := num2;
+num2 := temp;
+
+DBMS_OUTPUT.PUT_LINE('After swapping:');
+DBMS_OUTPUT.PUT_LINE('num1 = ' || num1);
+DBMS_OUTPUT.PUT_LINE('num2 = ' || num2);
+END;
+
+
+DECLARE
+num NUMBER := 10;
+factorial NUMBER := 1;
+BEGIN
+FOR i IN 1..num LOOP
+factorial := factorial * i;
+END LOOP;
+
+DBMS_OUTPUT.PUT_LINE('Factorial of ' || num || ' is ' || factorial);
+END;
+
+
+DECLARE
+num NUMBER := 7;
+is_prime BOOLEAN := TRUE;
+BEGIN
+IF num <= 1 THEN
+is_prime := FALSE;
+ELSE
+FOR i IN 2..num/2 LOOP
+IF num mod i = 0 THEN
+is_prime := FALSE;
+EXIT; -- exit loop if factor found
+END IF;
+END LOOP;
+END IF;
+
+IF is_prime THEN
+DBMS_OUTPUT.PUT_LINE(num || ' is a prime number');
+ELSE
+DBMS_OUTPUT.PUT_LINE(num || ' is not a prime number');
+END IF;
+END;
+
+
+BEGIN
+UPDATE departments
+SET department_name = 'HRD'
+WHERE department_id = 71
+AND department_name != 'HRD';
+
+IF SQL%ROWCOUNT > 0 THEN
+dbms_output.put_line('Department 71 name has been modified.');
+ELSE
+dbms_output.put_line('Department 71 name is already HRD.');
+END IF;
+END;
+/
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+create table DEPT
+(
+DEPTNO int,
+DNAME VARCHAR(20),
+LOC VARCHAR(20)
+);
+INSERT INTO DEPT VALUES(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES(20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES(40,'OPERATIONS','BOSTON');
+CREATE TABLE MANAGER(
+MGR_ID int,
+NAME varchar(30),
+SALARY int,
+HIREDATE date
+);
+INSERT INTO MANAGER (MGR_ID, NAME, SALARY,HIREDATE)
+SELECT empno,ename,sal,hiredate
+FROM EMP
+WHERE job='MANAGER';
+
+
+CREATE OR REPLACE PROCEDURE sumTwoNum (num1 IN number,num2 IN number)
+IS
+BEGIN
+dbms_output.put_line (num1 + num2);
+END;
+/
+exec sumTwoNum(15,6);
+
+
+CREATE OR REPLACE PROCEDURE sal_upd
+IS
+BEGIN
+update emp
+set SAL=SAL+SAL*0.10
+where job = 'CLERK';
+END;
+/
+exec sal_upd;
+SELECT * FROM emp where job in('CLERK');
+
+
+CREATE OR REPLACE PROCEDURE count_managers AS
+mcount NUMBER;
+BEGIN
+SELECT COUNT(DISTINCT mgr)
+INTO mcount
+FROM emp
+WHERE mgr IS NOT NULL;
+DBMS_OUTPUT.PUT_LINE('Number of Managers: ' || manager_count);
+END;
+/
+BEGIN
+count_managers;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE display_emp_details AS
+BEGIN
+FOR e IN (SELECT * FROM emp WHERE ename LIKE 'A%' OR ename LIKE 'M%') LOOP
+DBMS_OUTPUT.PUT_LINE('Employee ID: ' || e.empno ||
+', Name: ' || e.ename ||
+', Job: ' || e.job ||
+', Manager ID: ' || e.mgr ||
+', Hire Date: ' || e.hiredate ||
+', Salary: ' || e.sal ||
+', Commission: ' || e.comm ||
+', Department ID: ' || e.dept);
+END LOOP;
+END;
+/
+BEGIN
+display_emp_details;
+END;
+/
+CREATE TABLE EMP(
+EMPNO int,
+ENAME varchar(50),
+JOB VARCHAR(20),
+MGR int,
+HIREDATE date,
+SAL INT,
+COMM int,
+DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+create or replace function adder(n1 in number, n2 in number)
+return number
+is
+n3 number(8);
+begin
+n3 :=n1+n2;
+return n3;
+end;
+/
+DECLARE
+n3 number(2);
+BEGIN
+n3 := adder(11,22);
+dbms_output.put_line('Addition is: ' || n3);
+END;
+/
+
+create or replace function fact(n number)
+return number is
+i number(10);
+f number:=1;
+begin
+for i in 1..N loop
+f:=f*i;
+end loop;
+return f;
+end;
+/
+DECLARE
+n3 number(20);
+BEGIN
+n3 :=fact(10);
+dbms_output.put_line('factorial of given number is: ' || n3);
+END;
+/
+
+
+CREATE OR REPLACE FUNCTION is_prime(n IN NUMBER) RETURN BOOLEAN IS
+i NUMBER := 2;
+BEGIN
+IF n <= 1 THEN
+RETURN FALSE;
+END IF;
+
+WHILE i <= SQRT(n) LOOP
+IF MOD(n, i) = 0 THEN
+RETURN FALSE;
+END IF;
+i := i + 1;
+END LOOP;
+
+RETURN TRUE;
+END;
+/
+DECLARE
+n NUMBER := 8;
+prime BOOLEAN;
+BEGIN
+prime := is_prime(n);
+IF prime THEN
+DBMS_OUTPUT.PUT_LINE(n || ' is prime');
+ELSE
+DBMS_OUTPUT.PUT_LINE(n || ' is not prime');
+END IF;
+END;
+/
+
+
+CREATE OR REPLACE FUNCTION get_salary(empid IN NUMBER) RETURN NUMBER IS
+salary NUMBER;
+BEGIN
+SELECT sal INTO salary FROM emp WHERE empno = empid;
+RETURN salary;
+END;
+/
+DECLARE
+empid NUMBER := 7839;
+salary NUMBER;
+BEGIN
+salary := get_salary(empid);
+DBMS_OUTPUT.PUT_LINE('Employee ' || empid || ' has a salary of ' || salary);
+END;
+/
+
+CREATE TABLE EMP(
+    EMPNO int,
+    ENAME varchar(50),
+    JOB VARCHAR(20),
+    MGR int,
+    HIREDATE date,
+    SAL INT,
+    COMM int,
+    DEPT int
+);
+
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7369','SMITH','CLERK','7902','17-DEC-80','800','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7499','ALLEN','SALESMAN','7698','20-FEB-81','1600','300','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7521','WARD','SALESMAN','7698','22-FEB-81','1250','500','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7566','JONES','MANAGER','7839','02-APR-81','2975','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7654','MARTIN','SALESMAN','7698','28-SEP-81','1250','1400','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7698','BLAKE','MANAGER','7839','01-MAY-81','2850','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7782','CLARK','MANAGER','7839','09-JUN-81','2450','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7788','SCOTT','ANALYST','7566','19-APR-87','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7839','KING','PRESIDENT','','17-NOV-81','5000','','10');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7844','TURNER','SALESMAN','7698','08-SEP-81','1500','0','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7876','ADAMS','CLERK','7788','23-MAY-87','1100','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7900','JAMES','CLERK','7698','03-DEC-81','950','','30');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7902','FORD','ANALYST','7566','03-DEC-81','3000','','20');
+INSERT INTO EMP(empno,ename,job,mgr,hiredate,sal,comm,dept)
+VALUES('7934','MILLER','CLERK','7782','23-JAN-82','1300','','10');
+
+
+Declare
+num number(5);
+Begin
+update emp set sal = sal + sal*0.15 where dept=20;
+if SQL%NOTFOUND then
+dbms_output.put_line('none of the salaries were updated');
+elsif SQL%FOUND then
+num := SQL%ROWCOUNT;
+dbms_output.put_line('salaries for ' || num || 'employees are
+updated');
+end if;
+End;
+/
+
+
+DECLARE
+CURSOR C1 IS SELECT EMPNO,ENAME ,DEPT FROM EMP;
+EMPNUM EMP.EMPNO%TYPE;
+EMPNAME EMP.ENAME%TYPE;
+DEPTNUM EMP.DEPT%TYPE;
+BEGIN OPEN C1;
+LOOP FETCH C1 INTO EMPNUM,EMPNAME,DEPTNUM;
+if c1%notfound then
+exit;
+else
+dbms_output.put_line(EMPNUM||' '||EMPNAME||' '||DEPTNUM);
+end if;
+END LOOP;
+end;
+/
+
+
+declare cursor c1 is select ename,sal from emp order by sal desc;
+v_ename varchar2(10);
+v_sal number(10);
+begin                           
+open c1;
+loop
+fetch c1 into v_ename,v_sal;
+exit when c1%rowcount>5;
+dbms_output.put_line(v_ename||','||v_sal);
+end loop;
+end;
+/
